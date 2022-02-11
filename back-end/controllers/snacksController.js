@@ -1,19 +1,19 @@
 const express = require("express");
-const songs = express.Router();
+const snacks = express.Router();
 
-const { getAllSongs } = require("../queries/songs");
+const { getAllsnacks } = require("../queries/snacks");
 
-// All Songs
-songs.get("/", async (_, response) => {
-  console.log("GET request to /songs");
-  const allSongs = await getAllSongs();
-  if (allSongs.length === 0) {
+// All snacks
+snacks.get("/", async (_, response) => {
+  console.log("GET request to /snacks");
+  const allsnacks = await getAllsnacks();
+  if (allsnacks.length === 0) {
     response.status(500).json({ error: "server error" });
 
     return;
   }
 
-  response.status(200).json(allSongs);
+  response.status(200).json(allsnacks);
 });
 
-module.exports = songs;
+module.exports = snacks;
