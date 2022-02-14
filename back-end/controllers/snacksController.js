@@ -1,12 +1,12 @@
 const express = require("express");
 const snacks = express.Router();
 
-const { getAllsnacks } = require("../queries/snacks");
+const { getAllSnacks } = require("../queries/snacks");
 
 // All snacks
 snacks.get("/", async (_, response) => {
   console.log("GET request to /snacks");
-  const allSnacks = await getAllsnacks();
+  const allSnacks = await getAllSnacks();
   if (allSnacks.length === 0) {
     response.status(500).json({ error: "server error" });
 
